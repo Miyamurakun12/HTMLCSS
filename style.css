@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+}
+
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(22, 26, 34);
+    color: #fff;
+    display: grid;
+    grid-template-rows: 40% 60%;
+}
+
+#left{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#right{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+}
+
+#right, #right .rect{
+    transform: rotateX(180deg);
+}
+
+#right::-webkit-scrollbar{
+    background-color: transparent;
+    height: 6px;
+    width: 12px;
+}
+
+#right::-webkit-scrollbar-thumb{
+    background-color: orangered;
+}
+
+#pic{
+    align-self: center;
+    justify-self: center;
+    contain: content;
+    padding-left: 10em;
+}
+
+#pic img{
+    height: 60%;
+    width: 60%;
+}
+
+#title_txt h1{
+    font-size: 7vw;
+    margin: 20px 30px;
+    font-weight: lighter;
+    line-height: 9.5vw;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#title_txt h3{
+    font-size: 1.5em;
+    margin: 15px 50px;
+    font-weight: lighter;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.rect img{
+    height: 90%;
+    width: 90%;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px #ff8559;
+}
+
+.cont{
+    flex-shrink: 0;
+}
+
+.rect{
+    height: 100%;
+    width: 100%;
+    justify-self: center;
+}
+
+.cont a{
+    color: black;
+    padding-left: 1px;
+    font-size: 1.5em;
+}
