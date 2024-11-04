@@ -1,95 +1,115 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@import url("https://fonts.cdnfonts.com/css/ica-rubrik-black");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Montserrat";
+  color: #181829;
+}
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.05;
+  z-index: 0;
+  filter: invert(0);
+}
+.main {
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+}
+.head {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 50px 0px 50px 50px;
+  position: relative;
+  width: 100%;
+}
+.info {
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 50px;
 }
 
-body,html{
-    height: 100%;
-    width: 100%;
+.info img {
+  height: 30px;
+  border-radius: 10px;
+  /* cursor: pointer; */
+}
+.head .h1 {
+  font-weight: 500;
+  font-size: 6em;
+  line-height: 0.9em;
+  text-transform: uppercase;
+  font-family: "ICA Rubrik";
+  position: relative;
+}
+.head h1::after {
+  position: absolute;
+  inset: 0 0 0 0;
+  content: attr(data-content);
+  z-index: 2;
+  -webkit-text-stroke: 2px #f3f3f3;
+  color: transparent;
+}
+.head h3 {
+  padding: 20px 5px;
+  font-weight: 400;
+  font-size: 1em;
+}
+.head .model {
+  background-image: url(./bbb.png);
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  top: 0px;
+  right: 10px;
+  background-size: 190%;
+ background-position: center;
+ background-repeat: no-repeat;
+ filter: drop-shadow(10px 10px 5px #2c39736b);
+}
+.list {
+  grid-row: 1;
+  grid-column: 2;
+  padding: 10px 50px;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.item {
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: 0% 0%;
+  transition: 0.9s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.299) ;
 }
 
-#main{
-    height: 100%;
-    width: 100%;
-    background-color: rgb(22, 26, 34);
-    color: #fff;
-    display: grid;
-    grid-template-rows: 40% 60%;
+.item:hover {
+  height: 100%;
+  transition: 0.5s cubic-bezier(1,-0.34,.82,1.73) ;
+  cursor: pointer;
 }
-
-#left{
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-
-#right{
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-y: auto;
-}
-
-#right, #right .rect{
-    transform: rotateX(180deg);
-}
-
-#right::-webkit-scrollbar{
-    background-color: transparent;
-    height: 6px;
-    width: 12px;
-}
-
-#right::-webkit-scrollbar-thumb{
-    background-color: orangered;
-}
-
-#pic{
-    align-self: center;
-    justify-self: center;
-    contain: content;
-    padding-left: 10em;
-}
-
-#pic img{
-    height: 60%;
-    width: 60%;
-}
-
-#title_txt h1{
-    font-size: 7vw;
-    margin: 20px 30px;
-    font-weight: lighter;
-    line-height: 9.5vw;
-    font-family: "Lucida Console", "Courier New", monospace;
-}
-
-#title_txt h3{
-    font-size: 1.5em;
-    margin: 15px 50px;
-    font-weight: lighter;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.rect img{
-    height: 90%;
-    width: 90%;
-    margin: 10px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 20px #ff8559;
-}
-
-.cont{
-    flex-shrink: 0;
-}
-
-.rect{
-    height: 100%;
-    width: 100%;
-    justify-self: center;
-}
-
-.cont a{
-    color: black;
-    padding-left: 1px;
-    font-size: 1.5em;
+.list:hover .item:not(:hover) {
+  filter: grayscale(1) blur(2px);
+  transition: 0.3s;
 }
